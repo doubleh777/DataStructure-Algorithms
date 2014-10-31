@@ -1,0 +1,5 @@
+package findmaxsubarray;
+
+public class FindMaxSubarray_Linear {
+
+}

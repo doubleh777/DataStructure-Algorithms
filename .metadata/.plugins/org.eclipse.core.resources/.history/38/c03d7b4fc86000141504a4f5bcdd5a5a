@@ -1,0 +1,15 @@
+package findmaxsubarray;
+
+public class FindMaxSubarrayTest {
+	
+	public static void main(String[] args){
+		
+		FindMaxSubarray findMaxSubarray = new FindMaxSubarray();
+		
+		int[] array1 = {2,-4,-2,1, 5, 10, -4, 4, 6, -1, -4 , 10};
+		Subarray maxSubarray = new Subarray();
+		maxSubarray = findMaxSubarray.find_Square(array1);
+		System.out.println("Front : " + maxSubarray.getFront() + ", " + "End : " + maxSubarray.getEnd() + ", " + "Sum : " + maxSubarray.getSum());
+	
+	}
+}

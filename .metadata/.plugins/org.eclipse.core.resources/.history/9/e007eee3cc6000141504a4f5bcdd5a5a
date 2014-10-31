@@ -1,0 +1,61 @@
+package findmaxsubarray;
+
+public class FindMaxSubarray {
+	
+
+	public SubarrayInfo find_Square(int[] arr){
+		
+		//arr가 null인 경우 와 배열의 길이가 0경우의 예외처리 
+		if(arr == null || arr.length == 0){
+			SubarrayInfo error = new SubarrayInfo(-1, -1, -1);
+			return error;
+		}
+		
+		SubarrayInfo[] subarray = new SubarrayInfo[arr.length];
+		//startPoint를 0부터 하나씩 증가시키면서 각각에 대하여 최값을 가지는 subarray들을 찾는 과정. 
+		for(int i = 0 ; i < arr.length ; i++){
+			subarray[i] = maxSumFromStartPos(arr, i);
+		}
+		
+		//위의 loop에서 찾은 최댓값 subarray후보들 중 가장 큰 subarray를 찾는 과정.  
+		int max = subarray[0].getSum();
+		int maxSubarrayIndex = 0;
+		
+		for(int i = 1 ; i < arr.length ; i++){
+			if(max < subarray[i].getSum()){
+				max = subarray[i].getSum();
+				maxSubarrayIndex = i;
+			}
+		}
+		
+		return subarray[maxSubarrayIndex];
+	}
+	
+	public SubarrayInfo maxSumFromStartPos(int[] arr, int startPos){
+		
+			SubarrayInfo maxSubarray = new SubarrayInfo();
+			
+			int end = startPos;
+			int max = arr[startPos];
+			int sum = arr[startPos];
+		
+			for(int i = startPos + 1 ; i<arr.length ; i++){	
+				sum += arr[i];
+				if(max < sum){
+					max = sum;
+					end = i;
+				}
+			}
+		
+			maxSubarray.setFront(startPos);
+			maxSubarray.setEnd(end);
+			maxSubarray.setSum(sum);
+		
+			return maxSubarray;
+		
+	}
+	
+//	public Subarray find_Linear(int[] arr, int size){
+//		
+//	}
+}
