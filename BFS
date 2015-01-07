@@ -1,0 +1,32 @@
+class Node{
+	int color;
+	int distance;
+	Node predecessor;
+	Node[] adjVertex;
+}
+
+class Graph_t{
+	Node[] vertex;
+}
+
+int BFS(Graph_t graph, Node source){
+	
+	for(int i=0 ; i < graph.vertax.length ; i++){
+		graph.vertex[i].color = 0; //0은 white
+		graph.vertex[i].distance = Integer.MAX_VALUE;
+		graph.predecessor = null;
+	}
+
+	source.color = 1; //1은 gray
+	source.distance = 0;
+
+	Queue<Node> queue = new LinkedList<Node>();
+	queue.offer(source);
+
+	while(queue.isEmpty()){
+		
+
+	}
+
+
+}
